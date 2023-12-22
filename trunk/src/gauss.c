@@ -2,6 +2,27 @@
 #include "gauss.h"
 
 int diag(Matrix *mat, Matrix  *b, int c){
+	int i;
+	double tmp;
+	double max=mat->data[c][c];
+	int max_id=c;
+	for(i=c; i<mat->c; i++)
+		if (fabs(mat->data[i][c])>max){
+			max=fabs(mat->data[i][c]);
+			max_id=i;
+		}
+	for(i=c; i<mat->c; i++){
+		tmp=mat->data[c][i];
+		mat->data[c][i]=mat->data[max_id][i];
+		mat->data[max_id][i]=tmp;
+	}
+	for (i=0; i<b->c; i++){
+		tmp=b->data[c][i];
+		b->data[c][i]=b->data[max_id][i];
+		b->data[max_id][i]=tmp;
+	}
+	if (max==0.0)
+		return 1;
 	return 0;
 }
 /**
