@@ -9,7 +9,10 @@ int  backsubst(Matrix *x, Matrix *mat, Matrix *b) {
 				 * Tutaj należy umieścić właściwą implemntację.
 				 */
 
-				int n = mat->r;  // Assuming A is a square matrix
+	int n;
+	if (mat->r!=mat->c || b->c!=1)
+		return 2;
+	n= mat->r;  // Assuming A is a square matrix
 
     // Back substitution loop
     for (int i = n - 1; i >= 0; i--) {
@@ -27,6 +30,6 @@ int  backsubst(Matrix *x, Matrix *mat, Matrix *b) {
     }
 
     return 0;  
-	       }
+}
 
 

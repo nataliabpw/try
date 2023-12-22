@@ -15,6 +15,10 @@ int main(int argc, char ** argv) {
 		fprintf(stderr, "Błąd! Niepoprawne dane. \n");
 		return 2;
 	}
+	if (A->r!=A->c || b->c!=1){
+		fprintf(stderr, "Błąd! Niepoprawne wymiary macierzy. \n");
+		return 6;
+	}
 	printToScreen(A);
 	printToScreen(b);
 
@@ -27,6 +31,7 @@ int main(int argc, char ** argv) {
 	x = createMatrix(b->r, 1);
 	if (x != NULL) {
 		res = backsubst(x,A,b);
+
 		printToScreen(x);
 	  freeMatrix(x);
 	} else {

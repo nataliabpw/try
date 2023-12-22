@@ -32,3 +32,9 @@ test: all
 	else \
 		echo "Test 5 - nierozwiązywalna z zerami: BŁĄD."; \
 	fi
+	@bin/gauss dane/A6 dane/b6; \
+	if [ $$? -eq 6 ] ; then \
+		echo "Test 6 - niepoprawne wymiary: OK."; \
+	else \
+	        echo "Test 6 - niepoprawne wymiary: BŁĄD."; \
+	fi
