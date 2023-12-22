@@ -26,3 +26,9 @@ test: all
 	else \
 		echo "Test 4 - niepoprawne dane: BŁĄD"; \
 	fi
+	@bin/gauss dane/A5 dane/b5; \
+	if [ $$? -eq 3 ] ; then \
+		echo "Test 5 - nierozwiązywalna z zerami: OK."; \
+	else \
+		echo "Test 5 - nierozwiązywalna z zerami: BŁĄD."; \
+	fi
