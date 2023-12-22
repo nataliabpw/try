@@ -1,6 +1,7 @@
 #include <math.h>
 #include "gauss.h"
 
+
 int diag(Matrix *mat, Matrix  *b, int c){
 	int i;
 	double tmp;
